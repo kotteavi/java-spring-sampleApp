@@ -24,15 +24,13 @@ public class HomeController {
 	public String showHome(Model model, Principal principal) {
 
 		List<Offer> availableOffers = offersService.getAvailableOffers();
-
 		model.addAttribute("availableOffers", availableOffers);
 		
-		
+		// Check to see if user has offers available -> toolbar.jsp
 		boolean hasOffer = false;
 		if(principal!= null){
 			hasOffer = offersService.hasOffer(principal.getName());
 		}
-		
 		model.addAttribute("hasOffer", hasOffer);
 
 		return "home";

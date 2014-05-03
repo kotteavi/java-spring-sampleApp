@@ -25,25 +25,6 @@ import com.spring.web.services.OffersService;
 @Controller
 public class OffersController {
 
-	// @RequestMapping("/")
-	// public String showHome(HttpSession session) {
-	// session.setAttribute("test",
-	// "This is a test of seeion being passed form our Spring controller");
-	//
-	// return "home";
-	// }
-
-	// @RequestMapping("/")
-	// public ModelAndView showHome() {
-	// ModelAndView mv = new ModelAndView("home");
-	//
-	// // stays in request scope not in session
-	// Map<String, Object> model = mv.getModel();
-	// model.put("name", "Avi Kotte");
-	//
-	// return mv;
-	// }
-
 	private OffersService offersService;
 
 	@Autowired
@@ -56,12 +37,12 @@ public class OffersController {
 
 		Offer offer = null;
 
+		// user can only have one offer 
+		// check to see if user already has offer
 		if (principal != null) {
 			String username = principal.getName();
-
 			offer = offersService.getOffer(username);
 		}
-
 		if (offer == null) {
 			offer = new Offer();
 		}
@@ -76,16 +57,20 @@ public class OffersController {
 			Principal principal,
 			@RequestParam(value = "delete", required = false) String delete) {
 
+		// if errors reload same page
 		if (results.hasErrors())
 			return "createoffer";
 
+		// create offer
 		if (delete == null) {
 			String username = principal.getName();
 			offer.getUser().setUsername(username);
 			offersService.saveOrUpdate(offer);
 
 			return "offercreated";
-		} else {
+		}
+		// delete offer
+		else {
 			offersService.delete(offer.getId());
 			return "offerdeleted";
 		}

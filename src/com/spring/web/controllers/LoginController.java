@@ -48,16 +48,8 @@ public class LoginController {
 		return "denied";
 	}
 
-	@RequestMapping("/messages")
-	public String showMessages() {
-
-		return "messages";
-	}
-
 	@RequestMapping("/admin")
 	public String showAdmin(Model model) {
-
-		// throw new AccessDeniedException("Hello");
 
 		List<User> users = usersService.getAllUsers();
 		model.addAttribute("users", users);
@@ -88,9 +80,11 @@ public class LoginController {
 			return "newaccount";
 		}
 
+		// default user has admin access
 		user.setAuthority("ROLE_ADMIN");
 		user.setEnabled(true);
 
+		// Check for user availability
 		if (usersService.isUsernameAvailable(user.getUsername())) {
 			results.rejectValue("username", "DuplicateKey.User.username");
 			return "newaccount";
@@ -104,45 +98,6 @@ public class LoginController {
 		}
 
 		return "accountcreated";
-	}
-
-	@RequestMapping(value = "/getmessages", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public Map<String, Object> getMessages(Principal principal) {
-
-		List<Message> messages = null;
-		if (principal == null) {
-			messages = new ArrayList<Message>();
-		} else {
-			String username = principal.getName();
-			messages = usersService.getMessages(username);
-		}
-
-		Map<String, Object> data = new HashMap<String, Object>();
-		data.put("messages", messages);
-		data.put("number", messages.size());
-
-		return data;
-	}
-
-	// sendmessage
-	@RequestMapping(value = "/sendmessage", method = RequestMethod.POST, produces = "application/json")
-	@ResponseBody
-	public Map<String, Object> sendMessage(Principal principal,
-			@RequestBody Map<String, Object> data) {
-
-		String text = (String) data.get("text");
-		String name = (String) data.get("name");
-		String email = (String) data.get("email");
-		Integer target = (Integer) data.get("target");
-
-		System.out.println(data);
-
-		Map<String, Object> returnValue = new HashMap<String, Object>();
-		returnValue.put("success", true);
-		returnValue.put("target", target );
-
-		return data;
 	}
 
 }
