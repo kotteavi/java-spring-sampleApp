@@ -13,7 +13,6 @@
 	</context:annotation-config>
 	<!-- Scan for annotations in package -->
 	<context:component-scan base-package="com.spring.web.dao"></context:component-scan>
-<context:component-scan base-package="com.spring.web.models"></context:component-scan>
 
 	<beans profile="production">
 
@@ -37,7 +36,6 @@
 			</property>
 			<property name="packagesToScan">
 				<list>
-					<value>com.spring.web.dao</value>
 					<value>com.spring.web.models</value>
 				</list>
 			</property>
