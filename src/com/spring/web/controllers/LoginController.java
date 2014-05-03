@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.web.dao.FormValidationGroup;
-import com.spring.web.dao.Message;
-import com.spring.web.dao.Offer;
 import com.spring.web.dao.PersistanceValidationGroup;
-import com.spring.web.dao.User;
+import com.spring.web.models.Message;
+import com.spring.web.models.Offer;
+import com.spring.web.models.User;
 import com.spring.web.services.UsersService;
 
 @Controller

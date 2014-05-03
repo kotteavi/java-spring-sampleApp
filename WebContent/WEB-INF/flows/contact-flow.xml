@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/webflow
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-	<var name="message" class="com.spring.web.dao.Message" />
+	<var name="message" class="com.spring.web.models.Message" />
 
 	<view-state id="showContactForm" model="message">
 		<on-entry>

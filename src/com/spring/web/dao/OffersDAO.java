@@ -23,6 +23,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mysql.jdbc.MysqlParameterMetadata;
+import com.spring.web.models.Offer;
 
 @Repository
 @Transactional

@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
-import com.spring.web.dao.Message;
 import com.spring.web.dao.MessagesDAO;
-import com.spring.web.dao.Offer;
 import com.spring.web.dao.OffersDAO;
-import com.spring.web.dao.User;
 import com.spring.web.dao.UserDAO;
+import com.spring.web.models.Message;
+import com.spring.web.models.Offer;
+import com.spring.web.models.User;
 
 @Service("usersService")
 public class UsersService {

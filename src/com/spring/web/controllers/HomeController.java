@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.web.dao.Offer;
+import com.spring.web.models.Offer;
 import com.spring.web.services.OffersService;
 
 @Controller

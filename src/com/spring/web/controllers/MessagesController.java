@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring.web.dao.Message;
+import com.spring.web.models.Message;
 import com.spring.web.services.UsersService;
 
 @Controller

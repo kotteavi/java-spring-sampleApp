@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spring.web.models.User;
+
 @Repository
 @Transactional
 @Component

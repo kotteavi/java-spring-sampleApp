@@ -15,10 +15,10 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.spring.web.dao.Offer;
 import com.spring.web.dao.OffersDAO;
-import com.spring.web.dao.User;
 import com.spring.web.dao.UserDAO;
+import com.spring.web.models.Offer;
+import com.spring.web.models.User;
 
 @ActiveProfiles("dev")
 @ContextConfiguration(locations = {
