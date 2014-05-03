@@ -11,13 +11,9 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<context:component-scan base-package="com.spring.web.controllers"></context:component-scan>
 
-	<!-- We replace the view resolver with Apache Tiles -->
-	<!-- <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="/WEB-INF/jsps/"> </property> <property name="suffix" 
-		value=".jsp"></property> </bean> -->
-
 	<mvc:resources location="/resources/" mapping="/static/**" />
 
+	<!-- Property files for error messages -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="com.spring.web.messages.messages"></property>

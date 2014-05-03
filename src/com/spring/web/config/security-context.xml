@@ -4,22 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
 	<security:authentication-manager>
-
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 				authorities-by-username-query="select username, authority from users where binary username = ?;"
 				users-by-username-query="select username, password, enabled from users where binary username = ?;"
 				id="jdbcUserService" />
-
 			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 	</security:authentication-manager>
 
 	<security:http use-expressions="true">
-		<!-- <security:intercept-url pattern="/admin" access="permitAll" /> -->
 		<security:intercept-url pattern="/admin"
 			access="hasRole('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/createoffer"
@@ -34,9 +30,6 @@
 			access="isAuthenticated()" />
 		<security:intercept-url pattern="/sendmessage"
 			access="isAuthenticated()" />
-		<!-- docreate -->
-		<!-- <security:intercept-url pattern="/accountcreated" access="isAuthenticated()" 
-			/> -->
 		<security:intercept-url pattern="/offercreated"
 			access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
@@ -59,7 +52,6 @@
 		<security:intercept-url pattern="/**" access="denyAll" />
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
-
 		<security:logout logout-success-url="/loggedout" />
 		<security:access-denied-handler
 			error-page="/denied" />

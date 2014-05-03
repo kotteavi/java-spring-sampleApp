@@ -8,15 +8,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 
+	<!-- Enable annotation -->
 	<context:annotation-config>
 	</context:annotation-config>
-
+	<!-- Scan for annotations in package -->
 	<context:component-scan base-package="com.spring.web.dao"></context:component-scan>
-
-	<!-- <jee:jndi-lookup jndi-name="jdbc/spring" id="dataSource" expected-type="javax.sql.DataSource"> 
-		</jee:jndi-lookup> <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
-		<property name="dataSource" ref="dataSource"></property> </bean> <tx:annotation-driven 
-		/> -->
 
 	<beans profile="production">
 
@@ -24,8 +20,7 @@
 			expected-type="javax.sql.DataSource">
 		</jee:jndi-lookup>
 
-		<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
-			<property name="dataSource" ref="dataSource"></property> </bean> -->
+		<!-- Enable transaction annotation -->
 		<tx:annotation-driven />
 
 		<bean id="sessionFactory"
@@ -48,7 +43,6 @@
 
 		<bean id="transactionManager"
 			class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-			<!-- <property name="dataSource" ref="dataSource"></property> -->
 			<property name="sessionFactory" ref="sessionFactory"></property>
 		</bean>
 
@@ -57,8 +51,5 @@
 		</bean>
 
 	</beans>
-
-
-	<!-- <beans profile="test"> </beans> -->
 
 </beans>
