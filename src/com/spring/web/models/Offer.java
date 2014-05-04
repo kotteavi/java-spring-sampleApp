@@ -24,7 +24,6 @@ public class Offer {
 	@GeneratedValue
 	private int id;
 
-	// i think the gorups is unnecessary, also check the controller 
 	@Size(min = 5, max = 100, message = "Text must be between 5 and 100 characters", groups = {
 			PersistanceValidationGroup.class, FormValidationGroup.class })
 	private String text;

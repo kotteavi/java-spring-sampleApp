@@ -19,6 +19,7 @@ public class Message implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7342646173072220059L;
+	
 	@Id
 	@GeneratedValue
 	private int id;

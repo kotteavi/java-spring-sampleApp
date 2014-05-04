@@ -32,10 +32,6 @@ public class User implements Serializable{
 	@Pattern(regexp = "^\\w{8,}$", groups = { PersistanceValidationGroup.class,
 			FormValidationGroup.class })
 	@Id
-	// tells it is the primary key
-	@Column(name = "username")
-	// same name so we dont have to worry about it but just to show if we do
-	// have a different name we can do this
 	private String username;
 
 	@NotBlank(message = "Password cannot be blank.", groups = {
