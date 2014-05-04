@@ -36,16 +36,16 @@ public class UsersService {
 		return userDAO.getAllUsers();
 	}
 
-	public void sendMessage(Message msg){
+	public void sendMessage(Message msg) {
 		msgDAO.saveOrUpdate(msg);
 	}
-	
-	public User getUser(String username){
+
+	public User getUser(String username) {
 		return userDAO.getUser(username);
 	}
 
 	public List<Message> getMessages(String username) {
 		return msgDAO.getMessages();
 	}
-	
+
 }

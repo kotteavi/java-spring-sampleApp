@@ -23,49 +23,43 @@ public class OffersService {
 		return offersDAO.getOffers();
 
 	}
-	
-	@Secured({"ROLE_ADMIN","ROLE_USER"})
-	public void createOffer(Offer offer){
+
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	public void createOffer(Offer offer) {
 		offersDAO.saveOrUpdate(offer);
 	}
 
-	public void throwDatabaseError() {
-		offersDAO.getOffer(42343);
-		
+	public boolean hasOffer(String name) {
+
+		if (name == null)
+			return false;
+
+		List<Offer> offers = offersDAO.getOffers(name);
+
+		if (offers.size() == 0)
+			return false;
+
+		return true;
 	}
 
-	public boolean hasOffer(String name) {
-		
-		if(name == null) return false;
-		
-		 List<Offer> offers = offersDAO.getOffers(name);
-		 
-		 if (offers.size() == 0 ) return false;
-		
-		return true ;
-	}
- 
 	public Offer getOffer(String username) {
-		
-		if (username == null){
+
+		if (username == null) {
 			return null;
 		}
-		
+
 		List<Offer> offers = offersDAO.getOffers(username);
-		
-		if(offers.isEmpty()) return null;
-		
+
+		if (offers.isEmpty())
+			return null;
+
 		return offers.get(0);
 	}
 
-	  public void saveOrUpdate(Offer offer) {
-//		if (offer.getId() != 0){
-//			offersDAO.update(offer);
-//		}
-//		else {
-			offersDAO.saveOrUpdate(offer);
-//		}
-		
+	public void saveOrUpdate(Offer offer) {
+
+		offersDAO.saveOrUpdate(offer);
+
 	}
 
 	public void delete(int id) {
