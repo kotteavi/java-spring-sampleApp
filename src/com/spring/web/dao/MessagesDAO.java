@@ -62,10 +62,6 @@ public class MessagesDAO {
 		
 	}
 
-	//
-	// CRUD methods
-	//
-
 	public void saveOrUpdate(Message msg) {
 		System.out.println(msg);
 		session().saveOrUpdate(msg);
@@ -73,7 +69,6 @@ public class MessagesDAO {
 	}
 
 	public boolean delete(int id) {
-		// this has hql language, hibernate query language. 
 		Query query = session().createQuery("delete from Message where id=:id");
 		query.setLong("id", id);
 		return query.executeUpdate()==1;
