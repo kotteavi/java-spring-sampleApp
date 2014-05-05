@@ -36,14 +36,14 @@ public class OffersDaoTests {
 	@Autowired
 	private DataSource dataSource;
 
-	private User user1 = new User("Avinash Kotte", "kotteavin", "911Change",
+	private User user1 = new User("Avinash Kotte", "kotteavin", "somePass",
 			"kotteavin@gmail.com", true, "ROLE_ADMIN");
-	private User user2 = new User("Abhilash Kotte", "kotteabh", "911Change",
+	private User user2 = new User("Abhilash Kotte", "kotteabh", "somePass",
 			"kotteabh@gmail.com", true, "ROLE_ADMIN");
-	private User user3 = new User("Sridevi Kotte", "kottesri", "911Change",
+	private User user3 = new User("Sridevi Kotte", "kottesri", "somePass",
 			"kottesri@gmail.com", true, "ROLE_ADMIN");
 	private User user4 = new User("Bhujanga Rao Kotte", "kotterao",
-			"911Change", "kotterao@gmail.com", true, "ROLE_ADMIN");
+			"somePass", "kotterao@gmail.com", true, "ROLE_ADMIN");
 	
 	private Offer offer1 = new Offer(user1,
 			"Avinash Kotte's offer");
@@ -118,7 +118,7 @@ public class OffersDaoTests {
 	}
 	
 	
-	// @Test
+	@Test
 	public void testGetOffersUsername(){
 		
 		userDAO.create(user4);
@@ -137,48 +137,4 @@ public class OffersDaoTests {
 		
 		
 	}
-
-	// @Test
-	// public void testCreateOffer() {
-
-	// User user = new User("AvinashKotte", "kotteavin", "911Change",
-	// "kotteavin@gmail.com", true, "ROLE_ADMIN");
-	//
-	// assertTrue("User should return true ", userDAO.create(user));
-	//
-	// Offer offer = new Offer(user,
-	// "Hell there this is my first time trying things");
-	//
-	// assertTrue("Offer creation should return true", offersDao.create(offer));
-	//
-	//
-	// List<Offer> offers = offersDao.getOffers(user.getUsername());
-	// assertEquals(1, offers.size());
-
-	// List<Offer> offers = offersDao.getOffers();
-	//
-	// assertEquals("Should be one offer in database.", 1, offers.size());
-	//
-	// assertEquals("Retrieved offer should match created offer.", offer,
-	// offers.get(0));
-	//
-	// // Get the offer with ID filled in.
-	// offer = offers.get(0);
-	//
-	// offer.setText("Updated offer text.");
-	// assertTrue("Offer update should return true",
-	// offersDao.update(offer));
-	//
-	// Offer updated = offersDao.getOffer(offer.getId());
-	//
-	// assertEquals("Updated offer should match retrieved updated offer",
-	// offer, updated);
-	//
-	// offersDao.delete(offer.getId());
-	//
-	// List<Offer> empty = offersDao.getOffers();
-	//
-	// assertEquals("Offers lists should be empty.", 0, empty.size());
-	// }
-
 }

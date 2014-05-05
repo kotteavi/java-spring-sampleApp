@@ -1,9 +1,5 @@
 package com.spring.web.test.tests;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.junit.Before;
@@ -16,10 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.spring.web.dao.MessagesDAO;
-import com.spring.web.dao.OffersDAO;
 import com.spring.web.dao.UserDAO;
 import com.spring.web.models.Message;
-import com.spring.web.models.Offer;
 import com.spring.web.models.User;
 
 @ActiveProfiles("dev")
@@ -68,7 +62,6 @@ public class MessageDaoTests {
 		userDAO.create(user2);
 		
 		messagesDAO.saveOrUpdate(message1);
-//		assertEquals(messagesDAO.getMessages().get(0).getContent(), message1.getContent());
 		
 	}
 

@@ -32,14 +32,14 @@ public class UserDaoTests {
 	@Autowired
 	private DataSource dataSource;
 
-	private User user1 = new User("Avinash Kotte", "kotteavin", "911Change",
+	private User user1 = new User("Avinash Kotte", "kotteavin", "somePass",
 			"kotteavin@gmail.com", true, "ROLE_ADMIN");
-	private User user2 = new User("Abhilash Kotte", "kotteabh", "911Change",
+	private User user2 = new User("Abhilash Kotte", "kotteabh", "somePass",
 			"kotteabh@gmail.com", true, "ROLE_ADMIN");
-	private User user3 = new User("Sridevi Kotte", "kottesri", "911Change",
+	private User user3 = new User("Sridevi Kotte", "kottesri", "somePass",
 			"kottesri@gmail.com", true, "ROLE_ADMIN");
 	private User user4 = new User("Bhujanga Rao Kotte", "kotterao",
-			"911Change", "kotterao@gmail.com", true, "ROLE_ADMIN");
+			"somePass", "kotterao@gmail.com", true, "ROLE_ADMIN");
 
 	@Before
 	public void init() {
